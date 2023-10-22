@@ -1,10 +1,16 @@
 package com.john.workshopmongo.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Document(collection = "user") // Para o Spring entender que essa classe é um documento do MongoDB
 public class User implements Serializable {
     private static final long serialVersionUID = 1L; // Para o objeto ser convertido em bytes e trafegar na rede
+
+    @Id // Para o Spring entender que esse atributo é o ID do documento
     private String id;
     private String name;
     private String email;
